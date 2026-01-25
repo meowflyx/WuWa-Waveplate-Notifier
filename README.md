@@ -30,7 +30,7 @@ A simple, asynchronous Telegram bot to track **Waveplate** (stamina) regeneratio
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/meowflyx/wuwa-waveplate-bot.git](https://github.com/meowflyx/wuwa-waveplate-bot.git)
+    git clone https://github.com/meowflyx/wuwa-waveplate-bot.git
     cd wuwa-waveplate-bot
     ```
 
