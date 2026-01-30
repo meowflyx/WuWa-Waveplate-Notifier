@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from typing import Dict, Optional, Any
 from dotenv import load_dotenv
 
+from telegram.request import HTTPXRequest
 from telegram import Update, ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
@@ -238,8 +239,9 @@ if __name__ == '__main__':
         print("Error: BOT_TOKEN is not set in environment variables or code.")
         exit(1)
 
-    application = ApplicationBuilder().token(TOKEN).build()
-
+    trequest = HTTPXRequest(connection_pool_size=8, read_timeout=20.0, write_timeout=20.0, connect_timeout=20.0)
+    application = ApplicationBuilder().token(TOKEN).request(trequest).build()
+    
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("set", set_manual))
     
